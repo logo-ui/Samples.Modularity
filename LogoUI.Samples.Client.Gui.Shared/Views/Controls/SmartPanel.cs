@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace LogoUI.Samples.Client.Gui.Shell.Controls
+namespace LogoUI.Samples.Client.Gui.Shared.Views.Controls
 {
     public class SmartPanel : Panel
     {

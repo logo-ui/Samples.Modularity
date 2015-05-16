@@ -1,4 +1,4 @@
-﻿namespace LogoUI.Samples.Client.Gui.Shell.UiServices
+﻿namespace LogoUI.Samples.Client.Gui.Shared.UiServices
 {
     public interface IShellCloseService
     {

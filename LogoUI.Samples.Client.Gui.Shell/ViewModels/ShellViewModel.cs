@@ -7,7 +7,7 @@ using Caliburn.Micro;
 using LogoFX.Practices.IoC;
 using LogoFX.UI.Commanding;
 using LogoFX.UI.Navigation;
-using LogoUI.Samples.Client.Gui.Shell.UiServices;
+using LogoUI.Samples.Client.Gui.Shared.UiServices;
 using LogoUI.Samples.Client.Model.Contracts;
 using LogoUI.Samples.Client.Model.Shared;
 

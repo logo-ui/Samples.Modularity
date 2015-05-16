@@ -154,7 +154,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Behaviors\WindowConstraintsBehavior.cs" />
     <Compile Include="Compliance\ViewModels\ComplianceListViewModel.cs" />
     <Compile Include="Compliance\ViewModels\ComplianceRecordsFiltersViewModel.cs" />
     <Compile Include="Compliance\ViewModels\ComplianceRecordsFilterViewModel.cs" />
@@ -164,8 +163,6 @@
     <Compile Include="Compliance\ViewModels\ConsoleViewModel.cs" />
     <Compile Include="Compliance\Models\ComplianceDateFiltering.cs" />
     <Compile Include="Compliance\Models\ComplianceRecordsFilter.cs" />
-    <Compile Include="Controls\SmartPanel.cs" />
-    <Compile Include="UiServices\IShellCloseService.cs" />
     <Compile Include="ViewModels\ChildWindowViewModel.cs" />
     <Compile Include="ViewModels\IMainViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
@@ -239,6 +236,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LogoUI.Samples.Client.Gui.Shared\LogoUI.Samples.Client.Gui.Shared.csproj">
+      <Project>{86bcd015-0bc9-4374-b5a9-d70e0b88265f}</Project>
+      <Name>LogoUI.Samples.Client.Gui.Shared</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LogoUI.Samples.Client.Model.Contracts\LogoUI.Samples.Client.Model.Contracts.csproj">
       <Project>{23BE14F7-5115-46A2-872F-DAD1E47B1E9A}</Project>
       <Name>LogoUI.Samples.Client.Model.Contracts</Name>

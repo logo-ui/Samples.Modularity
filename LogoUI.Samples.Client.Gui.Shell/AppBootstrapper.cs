@@ -1,7 +1,7 @@
 ﻿using Caliburn.Micro;
 using LogoFX.UI.Bootstrapping.SimpleContainer;
 using LogoFX.UI.Navigation;
-using LogoUI.Samples.Client.Gui.Shell.UiServices;
+using LogoUI.Samples.Client.Gui.Shared.UiServices;
 using LogoUI.Samples.Client.Gui.Shell.ViewModels;
 
 namespace LogoUI.Samples.Client.Gui.Shell

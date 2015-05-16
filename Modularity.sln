@@ -23,6 +23,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modularity", "Modularity", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogoUI.Samples.Client.Gui.Modularity", "LogoUI.Samples.Client.Gui.Modularity\LogoUI.Samples.Client.Gui.Modularity.csproj", "{B4CAD13A-CF4C-4C59-A1D1-7E9A6CE0E745}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{BD3BECF5-9D92-4CD9-B4D3-68CE8CB4B2A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogoUI.Samples.Client.Gui.Shared", "LogoUI.Samples.Client.Gui.Shared\LogoUI.Samples.Client.Gui.Shared.csproj", "{86BCD015-0BC9-4374-B5A9-D70E0B88265F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +82,14 @@ Global
 		{B4CAD13A-CF4C-4C59-A1D1-7E9A6CE0E745}.DebugWithReal|Any CPU.Build.0 = Debug|Any CPU
 		{B4CAD13A-CF4C-4C59-A1D1-7E9A6CE0E745}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4CAD13A-CF4C-4C59-A1D1-7E9A6CE0E745}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86BCD015-0BC9-4374-B5A9-D70E0B88265F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86BCD015-0BC9-4374-B5A9-D70E0B88265F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86BCD015-0BC9-4374-B5A9-D70E0B88265F}.DebugWithFake|Any CPU.ActiveCfg = Debug|Any CPU
+		{86BCD015-0BC9-4374-B5A9-D70E0B88265F}.DebugWithFake|Any CPU.Build.0 = Debug|Any CPU
+		{86BCD015-0BC9-4374-B5A9-D70E0B88265F}.DebugWithReal|Any CPU.ActiveCfg = Debug|Any CPU
+		{86BCD015-0BC9-4374-B5A9-D70E0B88265F}.DebugWithReal|Any CPU.Build.0 = Debug|Any CPU
+		{86BCD015-0BC9-4374-B5A9-D70E0B88265F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86BCD015-0BC9-4374-B5A9-D70E0B88265F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,5 +103,7 @@ Global
 		{B2227092-91D4-4DE7-BC60-0160C0E4CEFA} = {719AD31A-1447-494B-93D5-897FCA9E0CCF}
 		{8D46CDE6-46BD-47C4-9807-6231F4BBA238} = {719AD31A-1447-494B-93D5-897FCA9E0CCF}
 		{B4CAD13A-CF4C-4C59-A1D1-7E9A6CE0E745} = {8D46CDE6-46BD-47C4-9807-6231F4BBA238}
+		{BD3BECF5-9D92-4CD9-B4D3-68CE8CB4B2A6} = {719AD31A-1447-494B-93D5-897FCA9E0CCF}
+		{86BCD015-0BC9-4374-B5A9-D70E0B88265F} = {BD3BECF5-9D92-4CD9-B4D3-68CE8CB4B2A6}
 	EndGlobalSection
 EndGlobal
