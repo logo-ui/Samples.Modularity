@@ -10,12 +10,13 @@
                       xmlns:actions="clr-namespace:LogoFX.UI.Views.Infra.Interactivity.Actions;assembly=LogoFX.UI.Views.Infra"                      
                       xmlns:viewModels="clr-namespace:LogoUI.Samples.Client.Gui.Shell.ViewModels"
                       xmlns:behaviors="clr-namespace:LogoUI.Samples.Client.Gui.Shared.Views.Behaviors;assembly=LogoUI.Samples.Client.Gui.Shared"
+                      xmlns:cal="http://www.caliburnproject.org"
                       MinWidth="550" MinHeight="500"
                       SnapsToDevicePixels="True"
                       mc:Ignorable="d"
                       d:DataContext="{d:DesignInstance viewModels:ShellViewModel}"
                       TitlebarHeight="42" WindowState="Maximized">
-    
+
     <controls:MetroWindow.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         <Style x:Key="SmallTextSepatator" TargetType="Rectangle">
@@ -28,7 +29,7 @@
 
         <Geometry x:Key="SettingsIcon">M 403.195,282.74L 401.783,282.74C 401.553,283.571 401.224,284.358 400.803,285.09L 402.108,286.394C 402.944,287.229 402.944,288.583 402.108,289.419L 401.352,290.175C 400.517,291.01 399.163,291.01 398.327,290.175L 397.013,288.861C 396.285,289.276 395.5,289.6 394.673,289.825L 394.673,291.195C 394.673,292.376 393.716,293.333 392.534,293.333L 391.466,293.333C 390.284,293.333 389.326,292.376 389.326,291.195L 389.326,289.825C 388.5,289.6 387.715,289.276 386.986,288.861L 385.672,290.175C 384.837,291.01 383.483,291.01 382.648,290.175L 381.892,289.419C 381.056,288.583 381.056,287.229 381.892,286.394L 383.197,285.09C 382.776,284.358 382.447,283.571 382.216,282.74L 380.805,282.74C 379.624,282.74 378.667,281.783 378.667,280.602L 378.667,279.533C 378.667,278.351 379.624,277.394 380.805,277.394L 382.201,277.394C 382.421,276.571 382.737,275.788 383.147,275.061L 381.892,273.806C 381.056,272.971 381.056,271.617 381.892,270.781L 382.648,270.025C 383.483,269.189 384.837,269.189 385.672,270.025L 386.902,271.257C 387.655,270.818 388.467,270.476 389.326,270.242L 389.326,268.805C 389.326,267.624 390.284,266.667 391.466,266.667L 392.534,266.667C 393.716,266.667 394.673,267.624 394.673,268.805L 394.673,270.242C 395.533,270.476 396.345,270.818 397.096,271.257L 398.327,270.025C 399.163,269.189 400.517,269.189 401.352,270.025L 402.108,270.781C 402.944,271.617 402.944,272.971 402.108,273.806L 400.853,275.061C 401.263,275.788 401.578,276.571 401.799,277.394L 403.195,277.394C 404.376,277.394 405.333,278.351 405.333,279.533L 405.333,280.602C 405.333,281.783 404.376,282.74 403.195,282.74 Z M 392,274.219C 388.753,274.219 386.118,276.852 386.118,280.1C 386.118,283.348 388.753,285.981 392,285.981C 395.247,285.981 397.882,283.348 397.882,280.1C 397.882,276.852 395.247,274.219 392,274.219 Z M 392,282.706C 390.523,282.706 389.326,281.51 389.326,280.033C 389.326,278.556 390.523,277.361 392,277.361C 393.477,277.361 394.673,278.556 394.673,280.033C 394.673,281.51 393.477,282.706 392,282.706 Z</Geometry>
     </controls:MetroWindow.Resources>
-    
+
     <behaviours:StylizedBehaviors.Behaviors>
         <behaviours:StylizedBehaviorCollection>
             <behaviours:BorderlessWindowBehavior />
@@ -37,9 +38,9 @@
         </behaviours:StylizedBehaviorCollection>
     </behaviours:StylizedBehaviors.Behaviors>
 
-	<i:Interaction.Behaviors>
-		<behaviors:WindowConstraintsBehavior MinWidth="1024" MinHeight="800" FitDesktop="True" />
-	</i:Interaction.Behaviors>
+    <i:Interaction.Behaviors>
+        <behaviors:WindowConstraintsBehavior MinWidth="1024" MinHeight="800" FitDesktop="True" />
+    </i:Interaction.Behaviors>
 
     <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands>
@@ -47,7 +48,7 @@
                      Height="18"
 			         Margin="15,0" 
                      Visibility="Collapsed" />
-            
+
             <Viewbox Width="30" 
                      Height="30" 
                      Margin="0,0,3,0" 
@@ -87,7 +88,7 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Button>
-            
+
             <Button Width="34" Height="34"
 			        Margin="0 0 16 0"
 			        IsEnabled="{Binding IsLoggedIn}"
@@ -113,11 +114,11 @@
             <ColumnDefinition Width="0.2*" />
         </Grid.ColumnDefinitions>
 
-        <controls:TransitioningContentControl x:Name="ActiveItem" 
+        <controls:TransitioningContentControl cal:View.Model="{Binding Path=ActiveItem}" 
                                               Grid.Column="0"
 		                                      Grid.ColumnSpan="2" 
                                               Transition="Right" />
-        <ContentControl x:Name="Message" 
+        <ContentControl cal:View.Model="{Binding Path=Message}" 
                         Grid.Column="0"
 		                Grid.ColumnSpan="2" />
     </Grid>

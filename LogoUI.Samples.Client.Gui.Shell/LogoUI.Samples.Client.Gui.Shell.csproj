@@ -124,6 +124,7 @@
       <HintPath>..\Lib\Solid\Solid.Practices.Modularity.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Reactive.Core">
       <HintPath>..\packages\Rx-Core.2.2.5\lib\net45\System.Reactive.Core.dll</HintPath>
     </Reference>
@@ -154,17 +155,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Compliance\ViewModels\ComplianceListViewModel.cs" />
-    <Compile Include="Compliance\ViewModels\ComplianceRecordsFiltersViewModel.cs" />
-    <Compile Include="Compliance\ViewModels\ComplianceRecordsFilterViewModel.cs" />
-    <Compile Include="Compliance\ViewModels\ComplianceRecordViewModel.cs" />
-    <Compile Include="Compliance\ViewModels\ComplianceRootViewModel.cs" />
-    <Compile Include="Compliance\ViewModels\ConsoleToolbarViewModel.cs" />
-    <Compile Include="Compliance\ViewModels\ConsoleViewModel.cs" />
-    <Compile Include="Compliance\Models\ComplianceDateFiltering.cs" />
-    <Compile Include="Compliance\Models\ComplianceRecordsFilter.cs" />
+    <Compile Include="HomeModule\HomeUIModule.cs" />
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="HomeModule\ViewModels\HomeViewModel.cs" />
+    <Compile Include="HomeModule\ViewModels\TileViewModel.cs" />
+    <Compile Include="ManagementModule\ManagementUIModule.cs" />
+    <Compile Include="ManagementModule\ViewModels\ManagementViewModel.cs" />
     <Compile Include="ViewModels\ChildWindowViewModel.cs" />
-    <Compile Include="ViewModels\IMainViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
@@ -190,31 +191,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Compliance\Views\ComplianceList\Cards.xaml">
+    <Page Include="HomeModule\Views\HomeView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Compliance\Views\ComplianceList\Grid.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Compliance\Views\ComplianceRecordsFiltersView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Compliance\Views\ComplianceRecordsFilterView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Compliance\Views\ComplianceRecordView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Compliance\Views\ComplianceRootView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Compliance\Views\ConsoleView.xaml">
+    <Page Include="HomeModule\Views\TileView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -236,6 +217,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LogoUI.Samples.Client.Gui.Modularity\LogoUI.Samples.Client.Gui.Modularity.csproj">
+      <Project>{B4CAD13A-CF4C-4C59-A1D1-7E9A6CE0E745}</Project>
+      <Name>LogoUI.Samples.Client.Gui.Modularity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LogoUI.Samples.Client.Gui.Shared\LogoUI.Samples.Client.Gui.Shared.csproj">
       <Project>{86bcd015-0bc9-4374-b5a9-d70e0b88265f}</Project>
       <Name>LogoUI.Samples.Client.Gui.Shared</Name>
@@ -249,7 +234,16 @@
       <Name>LogoUI.Samples.Client.Model.Shared</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ManagementModule\Views\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

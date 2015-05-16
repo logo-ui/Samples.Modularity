@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Promisec.ControlCenter.Client.Gui.Shared")]
+[assembly: AssemblyTitle("LogoUI.Samples.Client.Gui.Shared")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Promisec.ControlCenter.Client.Gui.Shared")]
+[assembly: AssemblyProduct("LogoUI.Samples.Client.Gui.Shared")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

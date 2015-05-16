@@ -9,20 +9,22 @@ using LogoFX.Practices.IoC;
 using LogoFX.UI.Commanding;
 using LogoFX.UI.Navigation;
 using LogoUI.Samples.Client.Gui.Shared.UiServices;
+using LogoUI.Samples.Client.Gui.Shared.ViewModels;
+using LogoUI.Samples.Client.Gui.Shell.Properties;
 using LogoUI.Samples.Client.Model.Contracts;
 
 namespace LogoUI.Samples.Client.Gui.Shell.ViewModels
-{    
+{
     [Singleton]
     [NavigationViewModel(ConductorType = typeof(ShellViewModel), IsSingleton = true)]
     public sealed class LoginViewModel : Screen
     {
         private readonly ILoginService _loginService;
         private readonly INavigationService _navigationService;
-        private readonly IShellCloseService _shellCloseService;                                
+        private readonly IShellCloseService _shellCloseService;
 
         public LoginViewModel(
-            ILoginService loginService, 
+            ILoginService loginService,
             INavigationService navigationService,
             IShellCloseService shellCloseService)
         {
@@ -31,8 +33,8 @@ namespace LogoUI.Samples.Client.Gui.Shell.ViewModels
             _shellCloseService = shellCloseService;
             _loginOptions = new ObservableCollection<string>
             {
-                "Windows", 
-                "Network"
+                Resources.Windows_Authentication, 
+                Resources.Network_Authentication
             };
         }
 
@@ -101,7 +103,7 @@ namespace LogoUI.Samples.Client.Gui.Shell.ViewModels
             }
             set
             {
-                UserName = value == "Network" ? string.Empty : GetUserAuthenticated();
+                UserName = value == Resources.Network_Authentication ? string.Empty : GetUserAuthenticated();
                 _selectedLogin = value;
                 NotifyOfPropertyChange(() => SelectedLogin);
                 NotifyOfPropertyChange(() => IsNetLogin);
@@ -113,7 +115,7 @@ namespace LogoUI.Samples.Client.Gui.Shell.ViewModels
         {
             get
             {
-                return SelectedLogin == "Network";
+                return SelectedLogin == Resources.Network_Authentication;
             }
         }
 
@@ -168,7 +170,7 @@ namespace LogoUI.Samples.Client.Gui.Shell.ViewModels
                 _isBusy = value;
                 NotifyOfPropertyChange(() => IsBusy);
             }
-        }        
+        }
 
         #region LoginFailureCause property
 

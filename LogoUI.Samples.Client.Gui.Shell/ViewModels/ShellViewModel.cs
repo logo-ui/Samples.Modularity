@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 using Caliburn.Micro;
 using LogoFX.Practices.IoC;
@@ -12,18 +11,18 @@ using LogoUI.Samples.Client.Model.Contracts;
 using LogoUI.Samples.Client.Model.Shared;
 
 namespace LogoUI.Samples.Client.Gui.Shell.ViewModels
-{    
-	[Singleton]
-    public sealed class ShellViewModel : Conductor<IScreen>, 
-        INavigationConductor, 
-        IWindowManager,        
-        IShellCloseService
-	{
-	    private readonly ILoginService _loginService;
-        private readonly INavigationService _navigationService;	    
+{
+    [Singleton]
+    public sealed class ShellViewModel : Conductor<IScreen>,
+        INavigationConductor,
+        IWindowManager,
+        IShellCloseService        
+    {
+        private readonly ILoginService _loginService;
+        private readonly INavigationService _navigationService;        
 
-	    public ShellViewModel(
-            ILoginService loginService, 
+        public ShellViewModel(
+            ILoginService loginService,
             INavigationService navigationService)
         {            
             _loginService = loginService;
@@ -32,7 +31,7 @@ namespace LogoUI.Samples.Client.Gui.Shell.ViewModels
             UserContext.CurrentChanged += CurrentChanged;
         }
 
-	    private ICommand _logoutCommand;
+        private ICommand _logoutCommand;
         public ICommand LogoutCommand
         {
             get
@@ -49,31 +48,37 @@ namespace LogoUI.Samples.Client.Gui.Shell.ViewModels
             }
         }
 
-	    public override string DisplayName
-		{
-			get { return "Logo UI - Switching Implementations"; }
-			set {  }
-		}
+        public override string DisplayName
+        {
+            get { return "LogoUI Samples - Modularity"; }
+            set { }
+        }
 
-	    public bool IsLoggedIn
-	    {
-	        get { return UserContext.Current != null; }
-	    }
+        public bool IsLoggedIn
+        {
+            get { return UserContext.Current != null; }
+        }
 
-	    public string CurrentUser
-	    {
-	        get { return UserContext.Current == null ? string.Empty : UserContext.Current.LoginName; }
-	    }
+        public string CurrentUser
+        {
+            get { return UserContext.Current == null ? string.Empty : UserContext.Current.LoginName; }
+        }
 
-	    private void CurrentChanged(object sender, EventArgs eventArgs)
+        #region Public Methods
+
+        #endregion
+
+        #region Private Members
+
+        private void CurrentChanged(object sender, EventArgs eventArgs)
         {
             NotifyOfPropertyChange(() => IsLoggedIn);
-            NotifyOfPropertyChange(() => CurrentUser);            
+            NotifyOfPropertyChange(() => CurrentUser);
         }
 
         private void GotoLogin()
         {
-            Task.Factory.StartNew(() => Execute.BeginOnUIThread(() => _navigationService.Navigate<LoginViewModel>()));            
+            Task.Factory.StartNew(() => Execute.BeginOnUIThread(() => _navigationService.Navigate<LoginViewModel>()));
         }
 
         private void OnDeactivated(object sender, DeactivationEventArgs e)
@@ -85,10 +90,16 @@ namespace LogoUI.Samples.Client.Gui.Shell.ViewModels
         private async void Logout()
         {
             await _loginService.LogOut();
-            Application.Current.Shutdown();
+            //should raise event for bootstrapper
+            //which will handle the shutdown event
+            //Application.Current.Shutdown();
         }
 
-	    protected override void OnActivate()
+        #endregion
+
+        #region Overrides
+
+        protected override void OnActivate()
         {
             base.OnActivate();
             ScreenExtensions.TryActivate(ChildWindow);
@@ -98,6 +109,7 @@ namespace LogoUI.Samples.Client.Gui.Shell.ViewModels
         protected override void OnViewLoaded(object view)
         {
             base.OnViewLoaded(view);
+
             GC.Collect();
         }
 
@@ -105,9 +117,9 @@ namespace LogoUI.Samples.Client.Gui.Shell.ViewModels
         {
             ScreenExtensions.TryDeactivate(ChildWindow, close);
             base.OnDeactivate(close);
-// ReSharper disable DelegateSubtraction
+            // ReSharper disable DelegateSubtraction
             UserContext.CurrentChanged -= CurrentChanged;
-// ReSharper restore DelegateSubtraction
+            // ReSharper restore DelegateSubtraction
         }
 
         public override void CanClose(Action<bool> callback)
@@ -126,12 +138,21 @@ namespace LogoUI.Samples.Client.Gui.Shell.ViewModels
             });
         }
 
-	    public void NavigateTo(object viewModel, object argument)
+        #endregion
+
+        #region INavigationConductor
+
+        public void NavigateTo(object viewModel, object argument)
         {
             ActivateItem((IScreen)viewModel);
         }
 
-	    private ChildWindowViewModel _childWindow;
+        #endregion
+
+        #region IWindowManager
+
+        private ChildWindowViewModel _childWindow;
+
         public ChildWindowViewModel ChildWindow
         {
             get { return _childWindow; }
@@ -167,7 +188,7 @@ namespace LogoUI.Samples.Client.Gui.Shell.ViewModels
             {
                 taskCompletionSource.Task.Wait();
                 ChildWindow = null;
-            });            
+            });
 
             return taskCompletionSource.Task;
         }
@@ -188,9 +209,11 @@ namespace LogoUI.Samples.Client.Gui.Shell.ViewModels
             throw new NotImplementedException();
         }
 
-	    public void Close()
-	    {
-	        TryClose();
-	    }
-	}
+        #endregion        
+
+        public void Close()
+        {
+            TryClose();
+        }
+    }
 }

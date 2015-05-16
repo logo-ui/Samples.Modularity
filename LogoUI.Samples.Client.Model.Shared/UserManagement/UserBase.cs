@@ -2,7 +2,7 @@
 
 namespace LogoUI.Samples.Client.Model.Shared.UserManagement
 {
-    public class UserBase : PromisecModel, IUser
+    public class UserBase : LogoModel, IUser
     {
         public string LoginName { get; set; }
         public string Password { get; set; }

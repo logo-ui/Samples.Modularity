@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace Promisec.ControlCenter.Client.Gui.Shared.Views.Converters
+namespace LogoUI.Samples.Client.Gui.Shared.Views.Converters
 {
     public class TextLengthToVisibilityConbverter : IValueConverter
     {

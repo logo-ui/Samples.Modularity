@@ -1,17 +1,17 @@
 ﻿using System;
 using LogoFX.UI.Navigation;
-using Promisec.ControlCenter.Client.Gui.Modularity.Contracts;
+using LogoUI.Samples.Client.Gui.Modularity.Contracts;
 
-namespace Promisec.ControlCenter.Client.Gui.Modularity.ViewModels
+namespace LogoUI.Samples.Client.Gui.Modularity.ViewModels
 {
     public class ModuleViewModel
     {
-        public ModuleViewModel(IPromisecUiModule model)
+        public ModuleViewModel(ILogoUiModule model)
         {
             Model = model;
         }
 
-        private IPromisecUiModule Model { get; set; }
+        private ILogoUiModule Model { get; set; }
 
         public object RootViewModel
         {
