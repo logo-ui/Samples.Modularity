@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"             
              xmlns:cal="http://www.caliburnproject.org"
-             xmlns:controls="clr-namespace:LogoUI.Samples.Client.Gui.Shell.Controls"
+             xmlns:controls="clr-namespace:LogoUI.Samples.Client.Gui.Shared.Views.Controls;assembly=LogoUI.Samples.Client.Gui.Shared"
              mc:Ignorable="d"              
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
